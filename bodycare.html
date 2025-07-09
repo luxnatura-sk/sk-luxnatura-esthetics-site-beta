@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Care - SK LuxNatura Esthetics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        html, body { height: 100%; width: 100%; }
+
+        body { animation: fadeIn 1s ease-out;
+            background-color: #b2a79d;
+            color: #5b3524;
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4ede4;
+            color: var(--text-color);
+        }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #5b3524;
+            color: #f4ede4;
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d8bf6d;
+            text-shadow: 0 0 15px #d8bf6d;
+            margin-top: 40px;
+        }
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: #f4ede4;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .product-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin: 15px 0;
+        }
+        .card {
+            background-color: #f4ede4;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #e2949e;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .card p {
+            margin: 15px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            gap: 8px;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links li a {
+            padding: 4px 6px;
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        
+        
+        
+        html::-webkit-scrollbar {
+            width: 8px;
+        }
+        html::-webkit-scrollbar-track {
+            background: #b2a79d;
+        }
+        html::-webkit-scrollbar-thumb {
+            background-color: #d8bf6d;
+            border-radius: 10px;
+            border: 2px solid #b2a79d;
+            box-shadow: 0 0 10px #d8bf6d;
+        }
+        html::-webkit-scrollbar-thumb:hover {
+            background-color: #ccaead;
+        }
+        html {
+            scrollbar-color: #d8bf6d #b2a79d;
+            scrollbar-width: thin;
+        }
+        .custom-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #e2949e;
+            background-color: rgba(226, 148, 158, 0.2);
+            box-shadow: 0 0 10px #e2949e, 0 0 20px #e2949e;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+            z-index: 9999;
+        }
+.logo-text {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1rem;
+            text-shadow: 0 0 5px #e2949e;
+            color: var(--text-color) !important;
+        }
+        .nav-links li a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .nav-links li a:hover {
+            color: #e2949e;
+            text-shadow: 0 0 8px #e2949e;
+        }
+        .dropdown-content li a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+        }
+@keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulseGlow4 {
+            from { text-shadow: 0 0 20px var(--text-color); }
+            to { text-shadow: 0 0 30px var(--text-color); }
+        }
+        .signature-grid a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+        }
+                .floating-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 900;
+        }
+
+        
+
+        .floating-stars::after {
+            top: auto;
+            bottom: 10px;
+            right: 10px;
+            left: auto;
+            animation-duration: 2.5s;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.3); }
+        }
+
+        /* Page fade-in and subheading glow already defined */
+            .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #5b3524;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            z-index: 999;
+        }
+        ul.nav-links li:hover > .dropdown {
+            display: block;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: #ffffff !important;
+            text-decoration: none;
+        }
+            .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .cart-dot {display: none; position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: red; border-radius: 50%;}
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;   /* keeps the icon color the same */
+            display: flex;    /* maintain the circle layout */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+            /* Remove default link styles */
+        .nav-links li a:link, .nav-links li a:visited {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .nav-links li a:focus, .nav-links li a:active {
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo" onclick="location.href='index.html'">
+        <div class="logo-text">SK LuxNatura Esthetics</div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="bodycare.html">Body Care</a>
+            <div class="dropdown">
+                <a href="bodyscrubs.html">Body Scrubs</a>
+                <a href="bodyoils.html">Body Oils</a>
+                <a href="bodywashes.html">Body Wash</a>
+                <a href="bodybutter.html">Body Butters</a>
+            </div>
+        </li>
+        <li>
+            <a href="skincare.html">Skincare</a>
+            <div class="dropdown">
+                <a href="facialcleanser.html">Facial Cleanser</a>
+                <a href="facialtoner.html">Facial Toner</a>
+                <a href="facialserums.html">Facial Serums</a>
+                <a href="facialmasks.html">Facial Masks</a>
+                <a href="facialmoisturizers.html">Facial Moisturizers</a>
+            </div>
+        </li>
+        <li>
+            <a href="perfume-body-mist.html">Perfumes/Body Mists</a>
+            <div class="dropdown">
+                <a href="body-mists.html">Body Mists</a>
+                <a href="perfumes.html">Perfumes</a>
+            </div>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="icons">
+  <a href="cart.html" class="icon">
+    🛒
+    <div class="cart-dot"></div>
+  </a>
+  <a href="account.html" class="icon">
+    👤
+  </a>
+</div>
+</nav>
+
+<!-- Body Care Banner -->
+<section class="hero" style="height: 300px; background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),  url('https://i.pinimg.com/736x/9f/80/b5/9f80b5458119801de350144aabbefcdc.jpg');">
+    <div>
+        <h1 style="font-family: 'Cinzel Decorative', cursive; font-size: 3rem; color: #e2949e; text-align: center; text-shadow: 0 0 15px #e2949e; animation: pulseGlow 2s infinite alternate; text-shadow: 0 0 15px #e2949e; margin: 0;">Explore Our Body Care Rituals</h1>
+    </div>
+</section>
+
+<!-- Body Care Gallery Section -->
+<section class="collection-section" style="background-color: #b2a79d;">
+    <h2 style="color: var(--text-color); font-size: 4rem; text-align: center; text-shadow: 0 0 20px var(--text-color); animation: pulseGlow4 2s infinite alternate; margin: 20px 0;">Our Body Care</h2>
+    <div class="signature-grid">
+        <a href="bodyscrubs.html"><div class="product-card">
+            <img src="https://i.pinimg.com/736x/b9/ca/f5/b9caf5c74e5d138f9eeb90534deb1f38.jpg" alt="Body Scrubs">
+            <h3>Body Scrubs</h3>
+        </div></a>
+        <a href="bodyoils.html"><div class="product-card">
+            <img src="https://i.pinimg.com/736x/03/eb/e0/03ebe0550eaebd4a22667727c74e8180.jpg" alt="Body Oils">
+            <h3>Body Oils</h3>
+        </div></a>
+        <a href="bodywashes.html"><div class="product-card">
+            <img src="https://i.pinimg.com/736x/7f/27/d6/7f27d602e37c165458c081b0cfff30cb.jpg" alt="Body Washes">
+            <h3>Body Washes</h3>
+        </div></a>
+        <a href="bodybutters.html"><div class="product-card">
+            <img src="https://i.pinimg.com/736x/0b/f3/dd/0bf3ddebc0933c9d23acc76b786c3e2e.jpg" alt="Body Butters">
+            <h3>Body Butters</h3>
+        </div></a>
+    </div>
+</section>
+
+<!-- Floating Particles -->
+<div class="floating-stars"></div>
+
+<!-- Footer Section -->
+<footer style="background-color: var(--primary-bg); text-align: center; padding: 20px; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem;">
+    SK LuxNatura Esthetics © 2025 | <a href="terms.html" style="color: var(--text-color); text-decoration: underline;">Terms and Conditions</a>
+</footer>
+</body>
+</html>
+
+ <script>
+    const products = {
+      'tropical-bliss-body-scrub': { name:"Tropical Bliss Body Scrub", price:20.00, image:"assets/images/tropical-bliss.jpg" },
+      'illumination-potion-hyperpigmentation-oil': { name:"Illumination Potion: Hyperpigmentation Oil", price:15.00, image:"assets/images/illumination-potion-hyperpigmentation-oil.jpg" },
+      'petals-kiss-body-mist': { name:"Petal's Kiss Body Mist", price:25.00, image:"assets/images/petals-kiss.jpg" },
+      'venusian-whisper-body-mist': { name:"Venusian Whisper Body Mist", price:25.00, image:"assets/images/venusian-whisper.jpg" }
+      'cashmere-smoke-body-butter': { name:"Cashmere Smoke Body Butter", price:25.00, image:"assets/images/cashmere-smoke.jpg" }
+      'dreamy-escape-body-scrub': { name:"Dreamy Escape Body Scrub", price:20.00, image:"assets/images/dreamy-escape.jpg" }
+      'midnight-mocha-body-scrub': { name:"Midnight Mocha Body Scrub", price:20.00, image:"assets/images/midnight-mocha.jpg" }
+      'rose-on-ice-body-scrub': { name:"Rose on Ice Body Scrub", price:20.00, image:"assets/images/rose-on-ice.jpg" }
+    };
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const container = document.getElementById('cartContainer');
+    const itemCountSpan = document.getElementById('itemCount');
+    const totalPriceSpan = document.getElementById('totalPrice');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    function renderCart() {
+      container.innerHTML = '';
+      let totalQty = 0, totalPrice = 0;
+      for (let id in cart) {
+        if (!products[id]) continue;
+        const qty = cart[id];
+        const { name, price, image } = products[id];
+        totalQty += qty;
+        totalPrice += price * qty;
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+        item.innerHTML = `
+          <img src="${image}" alt="${name}">
+          <div class="item-details">
+            <div class="item-name">${name}</div>
+            <div class="item-price">$${price.toFixed(2)}</div>
+            <div class="item-actions">
+              <button class="wish-btn"><i class="far fa-heart"></i></button>
+              <div class="quantity-control">
+                <button class="qty-decrease">-</button>
+                <span class="qty">${qty}</span>
+                <button class="qty-increase">+</button>
+              </div>
+              <button class="remove-btn"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        `;
+        item.querySelector('.qty-increase').addEventListener('click', () => updateQuantity(id, 1));
+        item.querySelector('.qty-decrease').addEventListener('click', () => updateQuantity(id, -1));
+        item.querySelector('.remove-btn').addEventListener('click', () => removeItem(id));
+        item.querySelector('.wish-btn').addEventListener('click', e => {
+          e.stopPropagation(); const icon = e.currentTarget.querySelector('i'); icon.classList.toggle('fas'); icon.classList.toggle('far');
+        });
+        container.appendChild(item);
+      }
+      itemCountSpan.innerText = totalQty;
+      totalPriceSpan.innerText = '$' + totalPrice.toFixed(2);
+    }
+    function updateQuantity(id, delta) {
+      cart[id] = (cart[id] || 0) + delta;
+      if (cart[id] < 1) delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    function removeItem(id) {
+      delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    checkoutBtn.addEventListener('click', () => window.location.href = 'checkout.html');
+    renderCart();
+    // 1. Utility: read/write the cart in localStorage
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || {};
+  }
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  // 2. addToCart: increments both the red dot and localStorage
+  function addToCart(productId) {
+    // read existing cart
+    const cart = getCart();
+
+    // bump this product
+    cart[productId] = (cart[productId] || 0) + 1;
+    saveCart(cart);
+
+    // update the dot
+    updateCartDot();
+  }
+   // updates the .cart-dot element to show (or hide) the current total
+  function updateCartDot() {
+    const cart = getCart();
+    // sum up all quantities
+    const totalQty = Object.values(cart).reduce((sum, q) => sum + q, 0);
+
+    const dot = document.querySelector('.cart-dot');
+    if (!dot) return;
+
+    if (totalQty > 0) {
+      dot.style.display = 'block';
+      dot.textContent = totalQty;
+    } else {
+      dot.style.display = 'none';
+    }
+     // 3. updateCartDot: updates the red dot
+    updateCartDot();
+
+  // 4. listen for addToCart events
+  document.querySelectorAll('.add-to-cart')
+    .forEach(el => {
+      el.addEventListener('click', () => {
+        addToCart(el.dataset.productId);
+    });
+  }
+  function closeModal() { document.getElementById('checkoutModal').style.display = 'none'; }
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Payment processing would occur here.');
+      closeModal();
+    });
+  // run on every page load
+  document.addEventListener('DOMContentLoaded', updateCartDot);
+  </script>
+</body>
+</html>

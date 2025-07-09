@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - SK LuxNatura Esthetics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&family=Lora&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-bg: #f4ede4;
+      --accent-color: #e2949e;
+      --text-color: #5b3524;
+      --star-color: #d8bf6d;
+    }
+    /* Animations */
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes pulseGlow { from {text-shadow:0 0 15px var(--accent-color);} to {text-shadow:0 0 25px var(--accent-color);} }
+    html { scroll-behavior: smooth; }
+    html::-webkit-scrollbar { width:8px; }
+    html::-webkit-scrollbar-track { background:var(--primary-bg); }
+    html::-webkit-scrollbar-thumb { background-color:var(--star-color); border-radius:10px; border:2px solid var(--primary-bg); box-shadow:0 0 10px var(--star-color); }
+    html::-webkit-scrollbar-thumb:hover { background-color:#d8bf6d; }
+    html { scrollbar-color: var(--star-color) var(--primary-bg); scrollbar-width: thin; }
+    body { animation:fadeInDown 1s ease-out; margin:0; padding:0; background-color:var(--primary-bg); font-family:'Lora', serif; color:var(--text-color); }
+    /* Nav */
+    nav { display:flex; justify-content:space-between; align-items:center; padding:20px; background-color:var(--primary-bg); position:relative; z-index:1000; }
+    .logo-text { font-family:'Cinzel Decorative', cursive; font-size:1rem; color:var(--text-color); cursor:pointer; }
+    ul.nav-links { list-style:none; display:flex; gap:8px; margin:0; padding:0; }
+    ul.nav-links li { position:relative; }
+    ul.nav-links li a { padding:4px 6px; font-family:'EB Garamond', serif; font-size:0.8rem; text-decoration:none; color:var(--text-color); text-transform:uppercase; letter-spacing:1px; text-shadow:0 0 5px var(--star-color); transition:color 0.3s,text-shadow 0.3s; }
+    ul.nav-links li a:hover { color:var(--accent-color); text-shadow:0 0 10px var(--accent-color); }
+    .dropdown { display:none; position:absolute; background-color:var(--primary-bg); top:100%; left:0; min-width:180px; box-shadow:0 5px 15px rgba(0,0,0,0.1); z-index:1100; }
+    ul.nav-links li:hover > .dropdown { display:block; }
+    .dropdown a { display:block; padding:10px; color:var(--text-color); text-decoration:none; transition:color 0.3s,text-shadow 0.3s; }
+    .dropdown a:hover { color:var(--accent-color); text-shadow:0 0 10px var(--accent-color); }
+    .icons { display:flex; align-items:center; gap:15px; }
+    .cart-dot {display: none; position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: red; border-radius: 50%;}
+    a.icon { text-decoration:none; color:inherit; display:flex; align-items:center; justify-content:center; }
+    .icon { width:40px; height:40px; border:2px solid var(--accent-color); border-radius:50%; transition:transform 0.2s,box-shadow 0.3s; cursor:pointer; }
+    .icon:hover { transform:scale(1.1); box-shadow:0 0 15px var(--accent-color); }
+    /* Hero */
+    .hero { width:100%; height:400px; position:relative; background:url('https://i.pinimg.com/736x/22/fb/c5/22fbc5cc2bee91020256974ceba38610.jpg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.4); }
+    .hero h1 { position:relative; z-index:1; font-family:'Cinzel Decorative', cursive; font-size:2.5rem; color:var(--primary-bg); text-shadow:0 0 15px var(--accent-color); animation:pulseGlow 2s infinite alternate; margin:0 20px; text-align:center; }
+    /* Contact Section */
+    .contact-section { max-width:800px; margin:40px auto; padding:20px; }
+    .contact-section h2 { font-family:'EB Garamond', serif; font-size:2rem; color:var(--accent-color); text-align:center; text-shadow:0 0 10px var(--star-color); margin-bottom:20px; }
+    .contact-placeholder { width:100%; height:500px; background-color:#ddd; border:2px dashed #bbb; display:flex; align-items:center; justify-content:center; color:#888; font-style:italic; }
+    /* Footer */
+    footer { background-color:var(--primary-bg); text-align:center; padding:20px; font-family:'Cormorant Garamond', serif; font-size:0.9rem; }
+    footer a { color:var(--text-color); text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+   <nav>
+        <div class="logo" onclick="location.href='index.html'">
+            
+            <div class="logo-text">SK LuxNatura Esthetics</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li>
+            <a href="bodycare.html">Body Care</a>
+                <div class="dropdown">
+                    <a href="bodyscrubs.html">Body Scrubs</a>
+                    <a href="bodyoils.html">Body Oils</a>
+                    <a href="bodywashes.html">Body Wash</a>
+                    <a href="bodybutter.html">Body Butter</a>
+                </div>
+            </li>
+            <li>
+                <a href="skincare.html">Skincare</a>
+                <div class="dropdown">
+                    <a href="facialcleanser.html">Facial Cleanser</a>
+                    <a href="facialtoner.html">Facial Toner</a>
+                    <a href="facialserum">Facial Serums</a>
+                    <a href="facialmasks">Facial Masks</a>
+                    <a href="facialmoisturizers">Facial Moisturizers</a>
+                </div>
+            </li>
+            <li>
+                <a href="perfume-body-mist.html">Perfume/Body Mist</a>
+                <div class="dropdown">
+                    <a href="perfumes.html">Perfumes</a>
+                    <div class="dropdown">
+                    </div>
+                    <a href="body-mists.html">Body Mists</a>
+                    <div class="dropdown">
+                    </div>
+                </div>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+       <div class="icons">
+  <a href="cart.html" class="icon">
+    🛒
+    <div class="cart-dot"></div>
+  </a>
+  <a href="account.html" class="icon">
+    👤
+  </a>
+</div>
+    
+    </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+  </section>
+
+  <!-- Contact Form Placeholder -->
+  <div class="contact-section">
+    <h2>We’d Love to Hear From You</h2>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeibgWUL3WYF4Pz5Y3DqbSq9JN7err5dQK4YaSH-gwl1oepkQ/viewform?embedded=true" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    SK LuxNatura Esthetics © 2025 | <a href="terms.html">Terms and Conditions</a>
+  </footer>
+</body>
+</html>
+
+ <script>
+    const products = {
+      'tropical-bliss-body-scrub': { name:"Tropical Bliss Body Scrub", price:20.00, image:"assets/images/tropical-bliss.jpg" },
+      'illumination-potion-hyperpigmentation-oil': { name:"Illumination Potion: Hyperpigmentation Oil", price:15.00, image:"assets/images/illumination-potion-hyperpigmentation-oil.jpg" },
+      'petals-kiss-body-mist': { name:"Petal's Kiss Body Mist", price:25.00, image:"assets/images/petals-kiss.jpg" },
+      'venusian-whisper-body-mist': { name:"Venusian Whisper Body Mist", price:25.00, image:"assets/images/venusian-whisper.jpg" }
+      'cashmere-smoke-body-butter': { name:"Cashmere Smoke Body Butter", price:25.00, image:"assets/images/cashmere-smoke.jpg" }
+      'dreamy-escape-body-scrub': { name:"Dreamy Escape Body Scrub", price:20.00, image:"assets/images/dreamy-escape.jpg" }
+      'midnight-mocha-body-scrub': { name:"Midnight Mocha Body Scrub", price:20.00, image:"assets/images/midnight-mocha.jpg" }
+      'rose-on-ice-body-scrub': { name:"Rose on Ice Body Scrub", price:20.00, image:"assets/images/rose-on-ice.jpg" }
+    };
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const container = document.getElementById('cartContainer');
+    const itemCountSpan = document.getElementById('itemCount');
+    const totalPriceSpan = document.getElementById('totalPrice');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    function renderCart() {
+      container.innerHTML = '';
+      let totalQty = 0, totalPrice = 0;
+      for (let id in cart) {
+        if (!products[id]) continue;
+        const qty = cart[id];
+        const { name, price, image } = products[id];
+        totalQty += qty;
+        totalPrice += price * qty;
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+        item.innerHTML = `
+          <img src="${image}" alt="${name}">
+          <div class="item-details">
+            <div class="item-name">${name}</div>
+            <div class="item-price">$${price.toFixed(2)}</div>
+            <div class="item-actions">
+              <button class="wish-btn"><i class="far fa-heart"></i></button>
+              <div class="quantity-control">
+                <button class="qty-decrease">-</button>
+                <span class="qty">${qty}</span>
+                <button class="qty-increase">+</button>
+              </div>
+              <button class="remove-btn"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        `;
+        item.querySelector('.qty-increase').addEventListener('click', () => updateQuantity(id, 1));
+        item.querySelector('.qty-decrease').addEventListener('click', () => updateQuantity(id, -1));
+        item.querySelector('.remove-btn').addEventListener('click', () => removeItem(id));
+        item.querySelector('.wish-btn').addEventListener('click', e => {
+          e.stopPropagation(); const icon = e.currentTarget.querySelector('i'); icon.classList.toggle('fas'); icon.classList.toggle('far');
+        });
+        container.appendChild(item);
+      }
+      itemCountSpan.innerText = totalQty;
+      totalPriceSpan.innerText = '$' + totalPrice.toFixed(2);
+    }
+    function updateQuantity(id, delta) {
+      cart[id] = (cart[id] || 0) + delta;
+      if (cart[id] < 1) delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    function removeItem(id) {
+      delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    checkoutBtn.addEventListener('click', () => window.location.href = 'checkout.html');
+    renderCart();
+    // 1. Utility: read/write the cart in localStorage
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || {};
+  }
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  // 2. addToCart: increments both the red dot and localStorage
+  function addToCart(productId) {
+    // read existing cart
+    const cart = getCart();
+
+    // bump this product
+    cart[productId] = (cart[productId] || 0) + 1;
+    saveCart(cart);
+
+    // update the dot
+    updateCartDot();
+  }
+   // updates the .cart-dot element to show (or hide) the current total
+  function updateCartDot() {
+    const cart = getCart();
+    // sum up all quantities
+    const totalQty = Object.values(cart).reduce((sum, q) => sum + q, 0);
+
+    const dot = document.querySelector('.cart-dot');
+    if (!dot) return;
+
+    if (totalQty > 0) {
+      dot.style.display = 'block';
+      dot.textContent = totalQty;
+    } else {
+      dot.style.display = 'none';
+    }
+  }
+  function closeModal() { document.getElementById('checkoutModal').style.display = 'none'; }
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Payment processing would occur here.');
+      closeModal();
+    });
+
+  // run on every page load
+  document.addEventListener('DOMContentLoaded', updateCartDot);
+  </script>
+</body>
+</html>

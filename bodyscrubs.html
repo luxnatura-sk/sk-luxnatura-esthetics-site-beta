@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Scrubs - SK LuxNatura Esthetics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&family=Lora&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #f4ede4;
+            --accent-color: #e2949e;
+            --text-color: #5b3524;
+            --star-color: #d8bf6d;
+        }
+        /* Page Fade-In Down Animation */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Glow Pulse */
+        @keyframes pulseGlow { from { text-shadow: 0 0 15px var(--accent-color);} to { text-shadow: 0 0 25px var(--accent-color);} }
+
+        /* Global Styles */
+        html { scroll-behavior: smooth; }
+        html::-webkit-scrollbar { width: 8px; }
+        html::-webkit-scrollbar-track { background: var(--primary-bg); }
+        html::-webkit-scrollbar-thumb { background-color: var(--star-color); border-radius: 10px; border: 2px solid var(--primary-bg); box-shadow: 0 0 10px var(--star-color); }
+        html::-webkit-scrollbar-thumb:hover { background-color: #d8bf6d; }
+        html { scrollbar-color: var(--star-color) var(--primary-bg); scrollbar-width: thin; }
+       
+        body {
+            animation: fadeInDown 1s ease-out;
+            background-color: var(--primary-bg);
+            font-family: 'Lora', serif;
+            margin: 0; padding: 0;
+            color: var(--text-color);
+        }
+        /* Master Navigation Bar */
+       nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-bg);
+            padding: 15px 35px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--star-color);
+            position: relative;
+            overflow: visible;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        ul.nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        ul.nav-links li {
+            position: relative;
+            display: inline-block;
+        }
+
+        ul.nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        ul.nav-links a:hover {
+            color: var(--accent-color);
+            text-shadow: var(--hover-glow);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-bg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            z-index: 999;
+        }
+
+        ul.nav-links li:hover > .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 0 10px var(--accent-color);
+            transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+            text-decoration: none;
+            color: inherit;   /* keeps the icon color the same */
+            display: flex;    /* maintain the circle layout */
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-dot {display: none; position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: red; border-radius: 50%;}
+
+        /* Banner Intro */
+         .hero {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            background: url('https://i.pinimg.com/736x/9f/80/b5/9f80b5458119801de350144aabbefcdc.jpg') center center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden
+        }
+        /* Overlay for contrast */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        .hero h1 {
+            position: relative;
+            z-index: 1;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: var(--primary-bg);
+            text-shadow: 0 0 15px var(--accent-color);
+            animation: pulseGlow 2s infinite alternate;
+            margin: 0 20px;
+            text-align: center;
+        }
+        .hero h1 { font-family: 'Cinzel Decorative', cursive; font-size: 3rem; color: var(--primary-bg); text-shadow: 0 0 15px var(--accent-color); animation: pulseGlow 2s infinite alternate; }
+        @keyframes pulseGlow { from { text-shadow: 0 0 15px var(--accent-color); } to { text-shadow: 0 0 25px var(--accent-color); } }
+
+        /* Section Heading */
+        .section-title { text-align: center; font-family: 'Cinzel Decorative', cursive; font-size: 2.5rem; color: var(--accent-color); margin: 40px 20px 20px; text-shadow: 0 0 15px var(--star-color); animation: pulseGlow 2s infinite alternate; }
+        .section-desc { font-family: 'Lora', serif; font-size: 1.1rem; max-width: 800px; margin: 0 auto 40px; text-align: center; line-height: 1.6; }
+
+        /* Product Cards Grid */
+        .product-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 20px; max-width: 1200px; margin: 0 auto 60px; }
+        .product-card { background: #f4ede4; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.2); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; position: relative; }
+        .product-card:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent-color); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-card-content { padding: 15px; }
+        .product-card-content h3 { font-family: 'EB Garamond', serif; font-size: 1.4rem; margin: 10px 0; }
+        .product-card-content p.price { font-family: 'Lora', serif; font-size: 1.2rem; margin: 5px 0; }
+        .product-card-content p.review { font-size: 0.9rem; color: #888; margin: 5px 0 15px; }
+        .product-card-content .btn { margin: 5px; padding: 8px 16px; font-family: 'EB Garamond', serif; font-size: 0.9rem; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s, box-shadow 0.3s; }
+        .btn-add { background-color: var(--star-color); color: var(--primary-bg); }
+        .btn-add:hover { box-shadow: 0 0 15px var(--star-color); }
+        .btn-buy { background-color: var(--accent-color); color: var(--primary-bg); }
+        .btn-buy:hover { box-shadow: 0 0 15px var(--accent-color); }
+        .nav-links li a:hover { color: var(--accent-color); text-shadow: 0 0 10px var(--accent-color); }
+        .dropdown a { display: block; padding: 10px; color: #ffffff; text-decoration: none; transition: color 0.3s, text-shadow 0.3s; }
+        .dropdown a:hover { color: var(--accent-color); text-shadow: 0 0 10px var(--accent-color); }
+        .product-link { display: block; text-decoration: none; color: inherit;}
+        .product-card { cursor: pointer;}
+
+        /* Custom Scrollbar */
+        html::-webkit-scrollbar { width: 8px; }
+        html::-webkit-scrollbar-track { background: var(--primary-bg); }
+        html::-webkit-scrollbar-thumb { background-color: var(--star-color); border-radius: 10px; border: 2px solid var(--primary-bg); box-shadow: 0 0 10px var(--star-color); }
+        html::-webkit-scrollbar-thumb:hover { background-color: #d8bf6d; }
+        html { scrollbar-color: var(--star-color) var(--primary-bg); scrollbar-width: thin; }
+        /* Cart Container */
+    .cart-container { max-width:1200px; margin:40px auto; padding:0 20px; display:flex; flex-direction:column; gap:20px; }
+    .cart-item { display:flex; align-items:center; background:white; border-radius:10px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    .cart-item img { width:120px; height:120px; object-fit:cover; }
+    .item-details { flex:1; padding:15px; display:flex; flex-direction:column; gap:8px; }
+    .item-name { font-family:'EB Garamond', serif; font-size:1.2rem; }
+    .item-price { font-size:1rem; font-weight:bold; }
+    .item-actions { display:flex; align-items:center; gap:10px; margin-top:auto; }
+    .wish-btn { background:none; border:none; font-size:1.2rem; color:var(--accent-color); cursor:pointer; outline: none; }
+    .quantity-control { display:flex; align-items:center; gap:5px; }
+    .quantity-control button { background:none; border:1px solid var(--star-color); padding:2px 6px; border-radius:4px; cursor:pointer; }
+    .remove-btn { background:none; border:none; font-size:1.2rem; color:#c00; cursor:pointer; }
+    /* Sticky Footer */
+    .cart-footer { position:fixed; bottom:0; left:0; width:100%; background:var(--primary-bg); box-shadow:0 -2px 5px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; padding:10px 20px; font-family:'EB Garamond', serif; }
+    .cart-summary { font-size:1rem; }
+    #checkoutBtn { background:var(--accent-color); color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer; transition:box-shadow 0.3s; }
+    #checkoutBtn:hover { box-shadow:0 0 10px var(--accent-color); }
+
+    /* Main Footer */
+    footer { background:var(--primary-bg); text-align:center; padding:20px; font-family:'Cormorant Garamond', serif; font-size:0.9rem; position:relative; z-index:100; margin-top:60px; }
+    footer a { color:var(--text-color); text-decoration:underline; }
+         /* Modal styles */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000; }
+        .modal { background: var(--primary-bg); border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); padding: 20px; position: relative; }
+        /* Close (X) Button */
+        .modal .close-button { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5rem; color: var(--text-color); cursor: pointer; transition: color 0.2s;}
+        .modal .close-button:hover {color: var(--accent-color);}
+        .modal h2 { font-family: 'Cinzel Decorative', cursive; font-size: 1.8rem; color: var(--accent-color); text-align: center; margin-bottom: 20px; }
+        .modal form { display: flex; flex-direction: column; gap: 10px; }
+        .modal label { font-size: 0.9rem; color: var(--text-color); }
+        .modal input { padding: 8px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; width: 100%; }
+        .modal .modal-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .modal .btn { flex: 1; margin: 0 5px; }
+        .modal-overlay {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(40,24,18,0.15); /* Soft dark overlay */ display: none; /* Hidden by default */ justify-content: center; align-items: center; z-index: 9999; /* High z-index to ensure it's on top of other elements */}
+.modal {
+  background: var(--primary-bg);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+.modal-content {
+  background: #f4ede4;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #d8bf6d88, 0 0 0 6px #e2949e44;
+  padding: 2.2rem 2.2rem 1.5rem 2.2rem;
+  min-width: 350px;
+  max-width: 95vw;
+  width: 440px;
+  position: relative;
+  animation: fadeInUp 0.4s;
+  font-family: 'EB Garamond', serif;
+}
+.modal-title {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #e2949e;
+  text-align: center;
+  margin-bottom: 1.3rem;
+  font-size: 2.1rem;
+  text-shadow: 0 0 15px #e2949e77;
+  letter-spacing: 2px;
+}
+.close-button {
+  position: absolute;
+  right: 1.1rem;
+  top: 1.1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #d8bf6d;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10;
+}
+.close-button:hover { color: #e2949e; }
+.modal-content input, .modal-content button {
+  width: 100%;
+  margin-top: .45rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1.2px solid #b2a79d;
+  margin-bottom: .7rem;
+  font-size: 1.1rem;
+}
+.modal-content button[type="button"], .modal-content button[type="submit"] {
+  width: auto;
+  padding: 0.8rem 2.1rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: none;
+  background: #e2949e;
+  color: #fff;
+  box-shadow: 0 0 14px #e2949e55;
+  margin-top: 0;
+  cursor: pointer;
+  transition:  0.2s;
+}
+.modal-content button[type="button"]:hover,
+.modal-content button[type="submit"]:hover {
+  background: #d8bf6d;
+  color: #5b3524;
+}
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+        
+</style>
+</head>
+<body>
+    <!-- Master Nav -->
+    <nav>
+        <div class="logo" onclick="location.href='index.html'">
+            
+            <div class="logo-text">SK LuxNatura Esthetics</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li>
+            <a href="bodycare.html">Body Care</a>
+                <div class="dropdown">
+                    <a href="bodyscrubs.html">Body Scrubs</a>
+                    <a href="bodyoils.html">Body Oils</a>
+                    <a href="bodywashes.html">Body Wash</a>
+                    <a href="bodybutter.html">Body Butter</a>
+                </div>
+            </li>
+            <li>
+                <a href="skincare.html">Skincare</a>
+                <div class="dropdown">
+                    <a href="facialcleanser.html">Facial Cleanser</a>
+                    <a href="facialtoner.html">Facial Toner</a>
+                    <a href="facialserum">Facial Serums</a>
+                    <a href="facialmasks">Facial Masks</a>
+                    <a href="facialmoisturizers">Facial Moisturizers</a>
+                </div>
+            </li>
+            <li>
+                <a href="perfume-body-mist.html">Perfume/Body Mist</a>
+                <div class="dropdown">
+                    <a href="perfumes.html">Perfumes</a>
+                    <div class="dropdown">
+                    </div>
+                    <a href="body-mists.html">Body Mists</a>
+                    <div class="dropdown">
+                    </div>
+                </div>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+       <div class="icons">
+  <a href="cart.html" class="icon">
+    🛒
+    <div class="cart-dot"></div>
+  </a>
+  <a href="account.html" class="icon">
+    👤
+  </a>
+</div>
+    
+    </nav>
+
+    <!-- Banner Intro -->
+    <section class="hero">
+        <div><h1>Indulge in Exquisite Scrubs</h1></div>
+    </section>
+
+    <!-- Section Title & Description -->
+    <div class="section-title">Body Scrubs</div>
+    <p class="section-desc">Our handcrafted scrubs gently exfoliate and nourish, revealing glowing skin with every use. Infused with luxurious scents like tropical fruits, exotic florals, and warm spices, each formula transforms your daily ritual into a sensorial escape.</p>
+
+    <!-- Products -->
+    <section class="product-section">
+        <!-- Tropical Bliss -->
+        <a onclick=window.location.href="tropical-bliss-body-scrub.html" class="product-link">
+  <div class="product-card" onclick="window.location.href='tropical-bliss-body-scrub.html'">
+            <img src="https://i.pinimg.com/736x/67/df/64/67df64aab6ce96d4cb6db655a26ed426.jpg" alt="Tropical Bliss Scrub">
+            <div class="product-card-content">
+                <h3>Tropical Bliss</h3>
+                <p class="status">Out of Stock</p>
+                <p class="price">$20<sup>.00</sup></p>
+                <p class="review">★★★★★ (0 reviews)</p>
+                <!-- ReviewMe Widget Placeholder -->
+                <div class="review-widget" data-product-id="tropical-bliss"></div>
+                <button class="btn btn-add" onclick="event.stopPropagation(); addToCart('tropical-bliss')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('tropical-bliss', event)">Buy Now</button>
+            </div>
+  </div>
+</a>
+        <!-- Dreamy Escape -->
+       <a onclick="window.location.href= "dreamy-escape-body-scrub.html" class="product-link">
+  <div class="product-card" onclick="window.location.href='dreamy-escape.html'">
+            <img src="https://i.pinimg.com/736x/b9/ca/f5/b9caf5c74e5d138f9eeb90534deb1f38.jpg" alt="Dreamy Escape Scrub">
+            <div class="product-card-content">
+                <h3>Dreamy Escape</h3>
+                <p class="price">$20<sup>.00</sup></p>
+                <p class="review">★★★★☆ (0 reviews)</p>
+                <!-- ReviewMe Widget Placeholder -->
+                <div class="review-widget" data-product-id="dreamy-escape"></div>
+                <button class="btn btn-add" onclick="event.stopPropagation(); addToCart('dreamy-escape')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('dreamy-escape', event)">Buy Now</button>
+            </div>
+  </div>
+</a>
+        <!-- Cashmere Smoke -->
+        <a onclick="window.location.href="cashmere-smoke-body-scrub.html" class="product-link">
+  <div class="product-card" onclick="window.location.href='cashmere-smoke.html'">
+            <img src="https://i.pinimg.com/736x/d6/ca/4d/d6ca4d11e023db444f6e889926020bf8.jpg" alt="Cashmere Smoke Scrub">
+            <div class="product-card-content">
+                <h3>Cashmere Smoke</h3>
+                <p class="price">$20<sup>.00</sup></p>
+                <p class="review">★★★★★ (0 reviews)</p>
+                <!-- ReviewMe Widget Placeholder -->
+                <div class="review-widget" data-product-id="cashmere-smoke"></div>
+                <button class="btn btn-add" onclick="event.stopPropagation(); addToCart('cashmere-smoke')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('cashmere-smoke', event)">Buy Now</button>
+            </div>
+  </div>
+</a>
+        <!-- Midnight Mocha -->
+        <a onclick="window.location.href="midnight-mocha-body-scrub.html" class="product-link">
+  <div class="product-card" onclick="window.location.href='midnight-mocha.html'">
+            <img src="https://i.pinimg.com/736x/d6/4d/48/d64d481cb5d1e31cd2d786d47f5f9ac2.jpg" alt="Midnight Mocha Scrub">
+            <div class="product-card-content">
+                <h3>Midnight Mocha</h3>
+                <p class="price">$20<sup>.00</sup></p>
+                <p class="review">★★★★☆ (0 reviews)</p>
+                <!-- ReviewMe Widget Placeholder -->
+                <div class="review-widget" data-product-id="midnight-mocha"></div>
+                <button class="btn btn-add" onclick="event.stopPropagation(); addToCart('midnight-mocha')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('midnight-mocha', event)">Buy Now</button>
+            </div>
+  </div>
+</a>
+        <!-- Rose on Ice -->
+       <a onclick="window.location.href="rose-on-ice-body-scrub.html" class="product-link">
+  <div class="product-card" onclick="window.location.href='rose-on-ice.html'">
+            <img src="https://i.pinimg.com/736x/6b/5c/67/6b5c678513a0a3d6a92b240207bcbd02.jpg" alt="Rose on Ice Scrub">
+            <div class="product-card-content">
+                <h3>Rose on Ice</h3>
+                <p class="price">$20<sup>.00</sup></p>
+                <p class="review">★★★★★ (0 reviews)</p>
+                <!-- ReviewMe Widget Placeholder -->
+                <div class="review-widget" data-product-id="rose-on-ice"></div>
+                <button class="btn btn-add" onclick="event.stopPropagation(); addToCart('rose-on-ice')">Add to Cart</button>
+                <button class="btn btn-buy" onclick="buyNow('rose-on-ice', event)">Buy Now</button>
+            </div>
+  </div>
+</a>
+</section>
+
+<!-- Modal Overlay -->
+<div id="checkoutModal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <button class="close-button" onclick="closeModal()">&times;</button>
+    <h2 class="modal-title">QUICK CHECKOUT</h2>
+    <form id="checkout-form" onsubmit="event.preventDefault(); processPayment();">
+      <label>Full Name</label>
+      <input type="text" required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Shipping Address</label>
+      <input type="text" required>
+      <label>Phone Number (optional)</label>
+      <input type="tel">
+      <label>Card Number</label>
+      <input type="text" placeholder="4242 4242 4242 4242" required>
+      <div style="display: flex; gap: 1rem;">
+        <div style="flex:1">
+          <label>Expiry Date</label>
+          <input type="text" placeholder="MM/YY" required>
+        </div>
+        <div style="flex:1">
+          <label>CVC</label>
+          <input type="text" placeholder="123" required>
+        </div>
+      </div>
+      <div style="margin-top:2rem; display:flex; gap:1rem;">
+        <button type="button" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn btn-pink">Complete Purchase</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-bg); text-align: center; padding: 20px; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem;">
+        SK LuxNatura Esthetics © 2025 | <a href="terms.html" style="color: var(--text-color); text-decoration: underline;">Terms and Conditions</a>
+    </footer>
+
+     <script>
+        // Cart functionality
+        let cart = [];
+        
+        // Product data - you can expand this with all your products
+        const products = {
+            'tropical-bliss-body-scrub': { name: 'Tropical Bliss', price: 20.00 },
+            'dreamy-escape-body-scrub': { name: 'Dreamy Escape', price: 20.00 },
+            'cashmere-smoke-body-scrub': { name: 'Cashmere Smoke', price: 20.00 }
+            'illumination-potion-hyperpigmentation-oil': { name: 'Illumination Potion: Hyperpigmentation Oil', price: 15.00 },
+            'petals-kiss-body-mist': { name: 'Petal's Kiss Body Mist', price: 25.00 },
+            'venusian-whisper-body-mist': { name: 'Venusian Whisper Body Mist', price: 25.00 },
+            'cashmere-smoke-body-butter': { name: 'Cashmere Smoke Body Butter', price: 25.00 },
+            'dreamy-escape-body-scrub': { name: 'Dreamy Escape Body Scrub', price: 20.00 },
+            'midnight-mocha-body-scrub': { name: 'Midnight Mocha Body Scrub', price: 20.00 },
+            'rose-on-ice-body-scrub': { name: 'Rose on Ice Body Scrub', price: 20.00 }
+        };
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load cart from localStorage if available
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartDisplay();
+            }
+            
+            // Add event listeners to all "Add to Cart" buttons
+            document.querySelectorAll('.btn-buy').forEach(button => {
+                button.addEventListener('click', () => {
+                    window.location.href = 'checkout.html';
+                 });
+            });
+            
+            // Add event listeners to all "Buy Now" buttons
+            document.querySelectorAll('[id^="buy-now-"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.id.replace('buy-now-', '');
+                    quickBuy(productId);
+                });
+            });
+            
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', openCheckoutModal);
+            
+            // Modal close buttons
+            document.getElementById('cancel-checkout').addEventListener('click', closeCheckoutModal);
+            document.getElementById('cancel-quickbuy').addEventListener('click', closeQuickBuyModal);
+            
+            // Form submissions
+            document.getElementById('checkout-form').addEventListener('submit', processCheckout);
+            document.getElementById('quickbuy-form').addEventListener('submit', processQuickBuy);
+        });
+        
+        // Add item to cart
+        function addToCart(productId) {
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: products[productId].name,
+                    price: products[productId].price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartDisplay();
+            saveCartToStorage();
+            
+            // Optional: Show a brief notification
+            showNotification(`${products[productId].name} added to cart`);
+        }
+        
+        // Quick buy function
+        function quickBuy(productId) {
+            // Clear cart and add just this item
+            cart = [{
+                id: productId,
+                name: products[productId].name,
+                price: products[productId].price,
+                quantity: 1
+            }];
+            
+            updateCartDisplay();
+            saveCartToStorage();
+            openQuickBuyModal();
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            
+            document.getElementById('cart-count').textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
+            document.getElementById('cart-total').textContent = `$${totalPrice.toFixed(2)}`;
+        }
+        
+        // Save cart to localStorage
+        function saveCartToStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        // Modal functions
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty');
+                return;
+            }
+            document.getElementById('checkout-modal').style.display = 'flex';
+        }
+        
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').style.display = 'none';
+        }
+        
+        function openQuickBuyModal() {
+            document.getElementById('quickbuy-modal').style.display = 'flex';
+        }
+        
+        function closeQuickBuyModal() {
+            document.getElementById('quickbuy-modal').style.display = 'none';
+        }
+        
+        // Process checkout form
+        function processCheckout(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the data to your payment processor
+            // This is where you would integrate Stripe, PayPal, etc.
+            processPayment(cart, 'checkout');
+        }
+        
+        // Process quick buy form
+        function processQuickBuy(e) {
+            e.preventDefault();
+            
+            // Process payment for the quick buy
+            processPayment(cart, 'quickbuy');
+        }
+        
+        // Payment processing function - placeholder for your payment integration
+        function processPayment(cartItems, type) {
+            // This is a placeholder for your actual payment processing
+            console.log('Processing payment for:', cartItems);
+            
+            // Collect form data
+            const formData = {
+                name: type === 'checkout' 
+                    ? document.getElementById('name').value 
+                    : document.getElementById('quick-name').value,
+                email: type === 'checkout' 
+                    ? document.getElementById('email').value 
+                    : document.getElementById('quick-email').value,
+                address: type === 'checkout' 
+                    ? document.getElementById('address').value 
+                    : document.getElementById('quick-address').value,
+                phone: type === 'checkout' 
+                    ? document.getElementById('phone').value 
+                    : document.getElementById('quick-phone').value,
+                payment: {
+                    cardNumber: type === 'checkout' 
+                        ? document.getElementById('card-number').value 
+                        : document.getElementById('quick-card').value,
+                    expiry: type === 'checkout' 
+                        ? document.getElementById('expiry').value 
+                        : document.getElementById('quick-expiry').value,
+                    cvc: type === 'checkout' 
+                        ? document.getElementById('cvc').value 
+                        : document.getElementById('quick-cvc').value
+                },
+                items: cartItems,
+                total: cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)
+            };
+            
+            
+            console.log('Form data:', formData);
+            
+            // In a real implementation, you would:
+            // 1. Validate the form data
+            // 2. Send to your payment processor (Stripe, PayPal, etc.)
+            // 3. Handle the response (success/failure)
+            
+            // For now, we'll simulate a successful payment
+            setTimeout(() => {
+                if (type === 'checkout') {
+                    closeCheckoutModal();
+                } else {
+                    closeQuickBuyModal();
+                }
+                
+                // Clear the cart
+                cart = [];
+                updateCartDisplay();
+                saveCartToStorage();
+                
+                showNotification('Payment successful! Thank you for your purchase.');
+            }, 1500);
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '80px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.backgroundColor = 'var(--primary-color)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '4px';
+            notification.style.zIndex = '3000';
+            notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

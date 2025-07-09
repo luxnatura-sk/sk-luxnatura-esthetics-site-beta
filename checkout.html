@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - SK LuxNatura Esthetics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=EB+Garamond&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: #f4ede4;
+      color: #5b3524;
+      padding: 40px 20px;
+    }
+    .checkout-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      color: #e2949e;
+      text-shadow: 0 0 15px #e2949e;
+    }
+    input, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #b2a79d;
+    }
+    button {
+      background-color: #e2949e;
+      color: white;
+      border: none;
+      box-shadow: 0 0 10px #e2949e;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #d8bf6d;
+      color: #5b3524;
+    }
+    #confirmation {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #d8bf6d;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.2rem;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .redirect-btn {
+      background: #fff;
+      border: 2px solid #5b3524;
+      color: #5b3524;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <h1>Quick Checkout</h1>
+    <form id="checkout-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Shipping Address" required>
+      <input type="tel" placeholder="Phone Number (optional)">
+      <input type="text" placeholder="Card Number" required>
+      <input type="text" placeholder="Expiry Date (MM/YY)" required>
+      <input type="text" placeholder="CVC" required>
+      <button type="submit">Complete Purchase</button>
+    </form>
+    <div id="confirmation">
+      <p>Thank you for your purchase! We appreciate your support of SK LuxNatura Esthetics.</p>
+      <button class="redirect-btn" onclick="window.location.href='index.html'">Return to Homepage</button>
+      <button class="redirect-btn" onclick="window.location.href='create-account.html'">Create an Account</button>
+    </div>
+  </div>  <script>
+    const form = document.getElementById('checkout-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+    });
+  </script></body>
+</html>

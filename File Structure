@@ -1,0 +1,54 @@
+SK-LuxNatura-Website/
+├── index.html
+├── bodycare.html
+    |── bodyscrubs.html
+        |── tropical-bliss-body-scrub-product.html
+        |── dreamy-escape-body-scrub-product.html
+        |── cashmere-smoke-body-scrub-product.html
+        |── midnight-mocha-body-scrub-product.html
+        |── rose-on-ice-body-scrub-product.html
+    |── bodyoils.html
+        |── illumination-potion-hyperpigmentation-body-oil-product.html
+    |── bodywashes.html
+    |── bodybutter.html
+├── skincare.html
+|── perfume-body-mist.html
+    |── perfumes.html
+    |── body-mists.html
+        |── petals-kiss-body-mist-product.html
+        |── venusian-whisper-body-mist-product.html
+├── about.html
+├── shop.html
+├── product.html
+├── cart.html
+├── login.html
+├── signup.html
+├── buy-now.html
+├── payment.html
+├── order-tracking.html
+├── order-history.html
+├── wishlist.html
+├── faq.html
+├── checkout.html
+├── account.html
+├── contact.html
+├── terms.html
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   │   └── responsive.css
+│   │   └── animations.css
+│   ├── fonts/
+│   ├── images/
+│   │   └── logo.png {https://i.pinimg.com/736x/22/fb/c5/22fbc5cc2bee91020256974ceba38610.jpg}
+│   ├── icons/
+├── scripts/
+│   └── script.js
+│   └── main.js
+│   └── cart.js
+│   └── product.js
+│   └── account.js
+│   └── contact.js
+│   └── modal.js
+├── node_modules/
+├── README.md
