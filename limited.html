@@ -1,1 +1,115 @@
+ <script>
+    const products = {
+      'tropical-bliss-body-scrub': { name:"Tropical Bliss Body Scrub", price:20.00, image:"assets/images/tropical-bliss.jpg" },
+      'illumination-potion-hyperpigmentation-oil': { name:"Illumination Potion: Hyperpigmentation Oil", price:15.00, image:"assets/images/illumination-potion-hyperpigmentation-oil.jpg" },
+      'petals-kiss-body-mist': { name:"Petal's Kiss Body Mist", price:25.00, image:"assets/images/petals-kiss.jpg" },
+      'venusian-whisper-body-mist': { name:"Venusian Whisper Body Mist", price:25.00, image:"assets/images/venusian-whisper.jpg" }
+      'cashmere-smoke-body-butter': { name:"Cashmere Smoke Body Butter", price:25.00, image:"assets/images/cashmere-smoke.jpg" }
+      'dreamy-escape-body-scrub': { name:"Dreamy Escape Body Scrub", price:20.00, image:"assets/images/dreamy-escape.jpg" }
+      'midnight-mocha-body-scrub': { name:"Midnight Mocha Body Scrub", price:20.00, image:"assets/images/midnight-mocha.jpg" }
+      'rose-on-ice-body-scrub': { name:"Rose on Ice Body Scrub", price:20.00, image:"assets/images/rose-on-ice.jpg" }
+    };
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const container = document.getElementById('cartContainer');
+    const itemCountSpan = document.getElementById('itemCount');
+    const totalPriceSpan = document.getElementById('totalPrice');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    function renderCart() {
+      container.innerHTML = '';
+      let totalQty = 0, totalPrice = 0;
+      for (let id in cart) {
+        if (!products[id]) continue;
+        const qty = cart[id];
+        const { name, price, image } = products[id];
+        totalQty += qty;
+        totalPrice += price * qty;
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+        item.innerHTML = `
+          <img src="${image}" alt="${name}">
+          <div class="item-details">
+            <div class="item-name">${name}</div>
+            <div class="item-price">$${price.toFixed(2)}</div>
+            <div class="item-actions">
+              <button class="wish-btn"><i class="far fa-heart"></i></button>
+              <div class="quantity-control">
+                <button class="qty-decrease">-</button>
+                <span class="qty">${qty}</span>
+                <button class="qty-increase">+</button>
+              </div>
+              <button class="remove-btn"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        `;
+        item.querySelector('.qty-increase').addEventListener('click', () => updateQuantity(id, 1));
+        item.querySelector('.qty-decrease').addEventListener('click', () => updateQuantity(id, -1));
+        item.querySelector('.remove-btn').addEventListener('click', () => removeItem(id));
+        item.querySelector('.wish-btn').addEventListener('click', e => {
+          e.stopPropagation(); const icon = e.currentTarget.querySelector('i'); icon.classList.toggle('fas'); icon.classList.toggle('far');
+        });
+        container.appendChild(item);
+      }
+      itemCountSpan.innerText = totalQty;
+      totalPriceSpan.innerText = '$' + totalPrice.toFixed(2);
+    }
+    function updateQuantity(id, delta) {
+      cart[id] = (cart[id] || 0) + delta;
+      if (cart[id] < 1) delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    function removeItem(id) {
+      delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    checkoutBtn.addEventListener('click', () => window.location.href = 'checkout.html');
+    renderCart();
+    // 1. Utility: read/write the cart in localStorage
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || {};
+  }
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 
+  // 2. addToCart: increments both the red dot and localStorage
+  function addToCart(productId) {
+    // read existing cart
+    const cart = getCart();
+
+    // bump this product
+    cart[productId] = (cart[productId] || 0) + 1;
+    saveCart(cart);
+
+    // update the dot
+    updateCartDot();
+  }
+   // updates the .cart-dot element to show (or hide) the current total
+  function updateCartDot() {
+    const cart = getCart();
+    // sum up all quantities
+    const totalQty = Object.values(cart).reduce((sum, q) => sum + q, 0);
+
+    const dot = document.querySelector('.cart-dot');
+    if (!dot) return;
+
+    if (totalQty > 0) {
+      dot.style.display = 'block';
+      dot.textContent = totalQty;
+    } else {
+      dot.style.display = 'none';
+    }
+  }
+  function closeModal() { document.getElementById('checkoutModal').style.display = 'none'; }
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Payment processing would occur here.');
+      closeModal();
+    });
+
+  // run on every page load
+  document.addEventListener('DOMContentLoaded', updateCartDot);
+  </script>
+</body>
+</html>
