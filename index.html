@@ -792,14 +792,47 @@
 </section>
 
 <section class="newsletter-section">
-    <h2>Stay Glowing with Us</h2>
-    <p>Be the first to know about new rituals, exclusive collections, and enchanting self-care tips. Subscribe to our newsletter and let the magic begin.</p>
-    <!-- Phase 2: Connect form to Mailchimp or email platform for luxnatura101@gmail.com -->
-    <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-    </form>
+  <h2>Stay Glowing With Us</h2>
+  <p>Be the first to know about new rituals, exclusive collections, and enchanting self-care tips. Subscribe to our newsletter and let the magic begin.</p>
+
+  <form id="newsletter-form">
+    <input
+      type="email"
+      id="newsletter-email"
+      placeholder="Enter your email"
+      required
+    />
+    <button type="submit">Subscribe</button>
+    <p id="newsletter-msg" aria-live="polite"></p>
+  </form>
 </section>
+
+<script>
+// This script can live right below your newsletter section (before </body>)
+document
+  .getElementById("newsletter-form")
+  .addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const email = document.getElementById("newsletter-email").value;
+    const msg   = document.getElementById("newsletter-msg");
+    try {
+      const res  = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+      const json = await res.json();
+      if (res.ok) {
+        msg.textContent = "✨ You’re subscribed! Check your inbox.";
+      } else {
+        throw new Error(json.error || "Subscription failed");
+      }
+    } catch (err) {
+      msg.textContent = "⚠️ " + err.message;
+    }
+  });
+</script>
+
 
 <div class="custom-cursor"></div>
 
