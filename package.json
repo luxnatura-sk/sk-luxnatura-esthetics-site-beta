@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Beta site for SK LuxNatura Esthetics",
   "main": "index.js",
+  "type": "module",
   "scripts": {},
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.0"
