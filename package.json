@@ -1,0 +1,14 @@
+{
+  "name": "sk-luxnatura-esthetics-site-beta",
+  "version": "1.0.0",
+  "description": "Beta site for SK LuxNatura Esthetics",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.x"
+  },
+  "license": "ISC"
+}
