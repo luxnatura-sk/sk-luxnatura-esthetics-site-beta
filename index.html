@@ -535,11 +535,11 @@
             color: var(--text-color);
         }
 
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
+       .newsletter-form {
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.5rem;
+            margin-top: 1rem;
             flex-wrap: wrap;
         }
 
@@ -549,7 +549,14 @@
             font-size: 1rem;
             border: 2px solid var(--star-color);
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 223, 0, 0.5);
             outline: none;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .newsletter-email:focus {
+            outline: none;
+            border-color: var(--yellow-dark);          /* a darker yellow if you have it */
+            box-shadow: 0 0 16px rgba(255, 223, 0, 0.8);
         }
 
         .newsletter-form button {
@@ -571,6 +578,11 @@
             box-shadow: 0 0 20px var(--star-color);
             transform: scale(1.1);
         }
+        .newsletter-msg {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: var(--text-color);
+}
     @media (max-width: 768px) {
     nav {
         flex-direction: column;
