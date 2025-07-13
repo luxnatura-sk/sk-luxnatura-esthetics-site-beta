@@ -535,53 +535,48 @@
             color: var(--text-color);
         }
 
-       .newsletter-form {
+       /* layout the form inline */
+        #newsletter-form {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             margin-top: 1rem;
-            flex-wrap: wrap;
         }
 
-        .newsletter-form input[type="email"] {
-            padding: 10px 20px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            border: 2px solid var(--star-color);
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(255, 223, 0, 0.5);
-            outline: none;
+        /* glowing email input */
+        #newsletter-email {
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--yellow);          /* your yellow from the palette */
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(255, 223, 0, 0.5); /* semi-transparent yellow glow */
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .newsletter-email:focus {
-            outline: none;
-            border-color: var(--yellow-dark);          /* a darker yellow if you have it */
-            box-shadow: 0 0 16px rgba(255, 223, 0, 0.8);
-        }
+#newsletter-email:focus {
+  outline: none;
+  border-color: var(--yellow-dark);          /* a darker yellow if you have it */
+  box-shadow: 0 0 16px rgba(255, 223, 0, 0.8);
+}
 
-        .newsletter-form button {
-            background-color: transparent;
-            color: var(--text-color);
-            border: 2px solid var(--star-color);
-            padding: 10px 20px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px var(--star-color);
-        }
+/* yellow button + pink hover */
+#newsletter-form button {
+  background-color: var(--yellow);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#newsletter-form button:hover {
+  background-color: var(--pink);  /* your pink from the palette */
+}
 
-        .newsletter-form button:hover {
-            background-color: var(--star-color);
-            color: var(--primary-bg);
-            box-shadow: 0 0 20px var(--star-color);
-            transform: scale(1.1);
-        }
-        .newsletter-msg {
-            margin-top: 0.5rem;
-            font-style: italic;
-            color: var(--text-color);
+/* feedback message styling */
+#newsletter-msg {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: var(--text-color);
 }
     @media (max-width: 768px) {
     nav {
